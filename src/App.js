@@ -7,6 +7,7 @@ import Layout from './component/layout';
 import { createBrowserRouter,Route,Routes,RouterProvider } from 'react-router-dom';
 import RootLayout from './component/layout';
 import Home from './component/home/home';
+import Navbar from './component/header/Navbar';
 
 
 
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar/>
       <RouterProvider router={router}/>
     </div>
   );
