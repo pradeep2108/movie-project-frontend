@@ -1,23 +1,40 @@
 import logo from './logo.svg';
 import './App.css';
+import api from './api/axiosConfig';
+import { useEffect, useState } from 'react';
+import MovieService from './api/movieService';
+import Layout from './component/layout';
+import { createBrowserRouter,Route,Routes,RouterProvider } from 'react-router-dom';
+import RootLayout from './component/layout';
+import Home from './component/home/home';
+
+
 
 function App() {
+  const [movies,setMovie] = useState([]);
+
+  const getMovies = async ()=>{
+    try{
+      const response = await MovieService.getAllMovies();
+      console.log(response.data);
+      setMovie(response.data);
+    }catch(err){
+      console.log(err)
+    }
+  }
+
+  useEffect(()=>{
+    getMovies();
+  },[])
+
+  const router = createBrowserRouter([
+    {path:'/', element:<RootLayout/>},
+    {path:'/home', element:<Home movies= {movies}/> }
+  ])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RouterProvider router={router}/>
     </div>
   );
 }
