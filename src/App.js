@@ -4,10 +4,13 @@ import api from './api/axiosConfig';
 import { useEffect, useState } from 'react';
 import MovieService from './api/movieService';
 import Layout from './component/layout';
-import { createBrowserRouter,Route,Routes,RouterProvider } from 'react-router-dom';
+import { createBrowserRouter,RoutesRouterProvider,BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RootLayout from './component/layout';
 import Home from './component/home/home';
-import Navbar from './component/header/Navbar';
+import { Navbar } from 'react-bootstrap';
+import Header from './component/header/Header';
+import Trailer from './component/trailer/Trailer';
+
 
 
 
@@ -28,16 +31,24 @@ function App() {
     getMovies();
   },[])
 
-  const router = createBrowserRouter([
-    {path:'/', element:<RootLayout/>},
-    {path:'/home', element:<Home movies= {movies}/> }
-  ])
+  // const router = createBrowserRouter([
+  //   {path:'/', element:<RootLayout/>},
+  //   {path:'/home', element:<Home movies= {movies}/> }
+  // ])
 
   return (
     <div className="App">
-      <Navbar/>
-      <RouterProvider router={router}/>
-    </div>
+      <Header/>
+      <Routes>
+        <Route path='/' element={<RootLayout movies= {movies}/>}/>
+        <Route path='/' element={<Home movies= {movies}/>}/>
+        <Route path='/Trailer/:ytTailerId' element={<Trailer/>}></Route>
+      </Routes>
+
+      
+      {/* <RouterProvider router={router}/> */}
+      
+      </div>
   );
 }
 
