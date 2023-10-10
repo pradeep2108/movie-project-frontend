@@ -1,0 +1,27 @@
+.review-page-container{
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 10%;
+}
+.box{
+    display: flex;
+}
+
+.review-page-movie-details > h3{
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 10px;
+}
+
+.review-page-movie-details > p{
+    font-size: medium;
+    padding-left: 11px;
+    color: grey;
+}
+
+.movie-trailer-container {
+   
+    z-index: 0.2;
+
+  }
+  

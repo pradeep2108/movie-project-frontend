@@ -1,0 +1,16 @@
+.trailer-player{
+    
+    position: relative;
+    margin-left: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0.2cm;
+    z-index: 0.2;
+  
+}
+
+.actual-player{
+     margin-top:1.5%;
+}

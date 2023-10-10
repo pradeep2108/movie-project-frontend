@@ -17,9 +17,11 @@ const Hero = ({movies}) => {
                             <div className='movie-card-container'>
                                 <div className='movie-card' style={{"--img":`url(${movie.backdrops[0]})`}}>
                                     <div className='movie-detail'>
-                                        <div className='movie-poster'>
-                                        <img src={movie.poster} alt=''/>
+                                    <Link to={`/reviewpage/${movie.title}`}>
+                                        <div className='movie-poster'>                                         
+                                        <img src={movie.poster} alt='movie-poster'/>                                       
                                         </div>
+                                        </Link>
                                     <div className='movie-title'>
                                         <h4>{movie.title}</h4>
                                         </div>

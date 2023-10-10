@@ -1,11 +1,16 @@
 import http from "./axiosConfig"
 
 const getAllMovies = ()=>{
-    return http.get('/api/reelreview/allmovies')
+    return http.get('/allmovies')
 }
 
+const getMovieByTitle = (title)=>{
+    return http.get('/movie/title/'+ title)
+} 
+
 const MovieService = {
-    getAllMovies
+    getAllMovies, 
+    getMovieByTitle
 }
 
 export default MovieService;

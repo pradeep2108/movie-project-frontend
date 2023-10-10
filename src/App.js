@@ -10,6 +10,8 @@ import Home from './component/home/home';
 import { Navbar } from 'react-bootstrap';
 import Header from './component/header/Header';
 import Trailer from './component/trailer/Trailer';
+import ReviewPage from './component/reviewpage/ReviewPage';
+
 
 
 
@@ -27,9 +29,13 @@ function App() {
     }
   }
 
+
+
   useEffect(()=>{
     getMovies();
   },[])
+
+  
 
   // const router = createBrowserRouter([
   //   {path:'/', element:<RootLayout/>},
@@ -43,6 +49,7 @@ function App() {
         <Route path='/' element={<RootLayout movies= {movies}/>}/>
         <Route path='/' element={<Home movies= {movies}/>}/>
         <Route path='/Trailer/:ytTailerId' element={<Trailer/>}></Route>
+        <Route path='/reviewpage/:title' element={<ReviewPage/>}></Route>
       </Routes>
 
       

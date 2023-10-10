@@ -1,0 +1,19 @@
+.card-container{
+    background-color: black;
+}
+
+.card-poster{
+
+    position: absolute;
+    height: 450px;
+    width: 300px;
+    border: 1px solid gold;
+    border-radius: 10px;
+    overflow: hidden; 
+}
+
+.card-poster > img {
+    height: 100%;
+    width: 100%;
+}
+
