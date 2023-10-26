@@ -1,0 +1,30 @@
+.review-container{
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+}
+
+.form-label{
+   font-weight: bolder;
+}
+
+.text-box{
+    margin-top: 1%;
+    width: 60%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 10%;
+    background-color: transparent;
+    color: white;
+    line-height: 0.5;
+    outline: none;
+}
+.text-box::placeholder {
+   
+}
+
+.submit-btn{
+    margin-top: 2%;
+    width: 10%;
+}

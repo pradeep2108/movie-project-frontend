@@ -14,5 +14,9 @@ body{
   min-height: 100vh;
   background-color: black;
   color:white;
+  overflow: auto;
   /* margin-top:10px; */
+}
+.header{
+  position: fixed;
 }

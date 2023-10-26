@@ -1,10 +1,11 @@
 .review-page-container{
-    position: absolute;
-    margin-top: 5%;
+    position: relative;
+    margin-top: 3%;
     margin-left: 10%;
-}
-.box{
-    display: flex;
+    display: flex; /* Use flexbox to arrange the elements */
+    flex-direction: column;
+    align-items: flex-start; /* Align elements at the top */
+    justify-content: space-between;
 }
 
 .review-page-movie-details > h3{
@@ -19,9 +20,57 @@
     color: grey;
 }
 
-.movie-trailer-container {
-   
-    z-index: 0.2;
+/* trailer container */
 
-  }
+.movie-trailer-container {
+   margin-left: 25%;
+   }
+  
+.genres{
+    position: relative;
+    top: 25px;
+}
+
+/* description design */
+.description{
+    font-family:'Georgia';
+    text-align: left;
+    width: 58%;
+}
+
+
+
+  @media screen and (max-width: 768px) {
+    .review-page-container {
+        margin-top: 10%;
+        margin-left: 5%;
+    }
+
+    .review-page-movie-details > h3 {
+        font-size: 18px;
+    }
+
+    .review-page-movie-details > p {
+        font-size: 14px;
+    }
+    .review-movie-card {
+       position: relative;
+       margin-top: 50%;
+         }
+
+    .movie-trailer-container {
+       position: absolute;
+       margin-left: 0%;
+       margin-top: 10%;
+      
+           }
+
+    .genres{
+        position: relative;
+        top: 20px;
+        left: 140px;
+        
+        }
+
+}
   

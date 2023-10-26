@@ -17,3 +17,9 @@
     width: 100%;
 }
 
+@media screen and (max-width: 768px) {
+    .card-poster {
+        height: 180px;
+        width: 130px;
+    }
+}

@@ -50,6 +50,8 @@
     padding:0px;
     margin:0px;
     width:150px;
+    height: 0;
+    
 }
 .play-button-icon{
     padding:0px;
@@ -70,4 +72,20 @@
         align-items: center;
         top:20px;
     }
+
+    .movie-title{
+        margin-top: 5%;
+    }
+    .movie-poster{
+        margin-top: 20%;
+    }
+
+    .play-button-icon-container{
+        height: 0;
+    }
+.play-button-icon{
+    margin-top: 10%;
+   margin-left: 150%;
+}
+
 }

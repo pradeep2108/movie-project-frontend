@@ -1,0 +1,24 @@
+.genre-tag {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px; 
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    cursor: default;
+  }
+  span:hover {
+    color:lightgray;
+    background-color:black;
+    border-color: gold;
+  }
+
+  @media screen and (max-width: 768px) {
+    .genre-tag{
+       font-size: 10px;
+        
+        }
+
+}

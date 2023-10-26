@@ -44,7 +44,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header/>
+      <Header className='header'/>
       <Routes>
         <Route path='/' element={<RootLayout movies= {movies}/>}/>
         <Route path='/' element={<Home movies= {movies}/>}/>

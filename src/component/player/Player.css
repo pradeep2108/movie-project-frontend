@@ -1,16 +1,22 @@
-.trailer-player{
-    
-    position: relative;
-    margin-left: 40%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    bottom: 0.2cm;
-    z-index: 0.2;
-  
-}
 
-.actual-player{
-     margin-top:1.5%;
-}
+
+  .one-player {
+    width: 740px !important; /* Set the width for larger screens */
+    height: 440px !important; /* Set the height for larger screens */
+  }
+  
+  /* Media query for screens with a maximum width of 768px */
+  @media screen and (max-width: 768px) {
+    .one-player {
+      width:400px !important; 
+      height: 250px !important; 
+      z-index: 2;
+    }
+  }
+
+  
+  
+  
+  
+  
+  

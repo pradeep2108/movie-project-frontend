@@ -9,7 +9,7 @@ import './Header.css'
 
 const Header = () => {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg"  className="navbar-main">
+    <Navbar bg="dark" variant="dark" expand="lg"  className="navbar-main navbar-fixed">
         <Container fluid>
             <Navbar.Brand href="/" style={{"color":'gold'}}>
             {/* <FontAwesomeIcon icon ={faVideoSlash}/>Gold */}
