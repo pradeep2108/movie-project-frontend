@@ -1,71 +1,49 @@
-import React, { useEffect, useRef } from 'react'
-import { Col, Container, Row } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
-import MovieService from '../../api/movieService';
-import ReviewForm from '../reviewform/ReviewForm';
+import React, { useEffect, useState } from 'react';
+import './Review.css'
+function Review({ movie }) {
+  const reviewIds = movie ? (movie.reviewIds || []) : [];
+  const [reviews, setReviews] = useState([]);
 
-const Review = ({getMovieData, movie, reviews, setReviews}) => {
+  console.log(reviewIds.id)
+  useEffect(() => {
+    const fetchReviews = () => {
+      try {
+         reviewIds.map((reviewId) => {   
+          setReviews(reviewId.body) 
+        });  
+        
+         
+      } catch (error) {
+        setReviews([]); 
+      }
+    };
 
-  const revText = useRef('');
-  const [rev,setRev] = useRef('')
-  let params = useParams();
-  let movieId = params.movieId;
+    if (reviewIds.length > 0) {
+      fetchReviews();
+    }
+  }, [reviewIds]);
 
-useEffect(()=>{
-  getMovieData(movieId);
-},[movieId])
 
-const addReview = async ()=>{
-  try{
-    const response = await MovieService.addReview({revText:rev, imdbid:movieId})
-
-  const updadatedReviews =[...reviews,{body:rev}];
-
-  rev.value='';
-
-  setReviews(updadatedReviews);
-  setRev('')
-
-  }catch(err){
-    console.error(err)
+  if (reviewIds.length > 0) {
+    return (
+      <div>
+        <p>
+           {reviewIds.map((review, index) => (
+             <span className='review' key={index}>{review.body}
+             <hr className='custom-hr'/>
+             </span>
+          ))}
+          
+        </p>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <p>***No Reviews***</p>
+      </div>
+    );
   }
-
-
 }
 
-  return (
-    <Container>
-      <Row>
-        <Col><h3>Reviews</h3></Col>
-        </Row>
-        <Row>
-          <Col>
-          {
-            <ReviewForm handleSubmit={addReview} revText={revText} labelText= "Write a Review?" setRev={setRev}/>
-          }
-          </Col>
-          <Row>
-            <Col>
-            <hr/>
-            </Col>
-          </Row>
-            {
-              reviews?.map((r, index)=>{
-                return(
-                  <div key={index}>
-                  <Row>
-                    <Col>{r.body}</Col>
-                  </Row>
-                  <Row>
-                    <hr/>
-                    </Row>
-                  </div>
-                )
-              })
-            }
-        </Row>
-    </Container>
-  )
-}
-
-export default Review
+export default Review;

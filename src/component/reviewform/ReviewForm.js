@@ -7,11 +7,10 @@ import './ReviewForm.css'
 const ReviewForm = ({movie}) => {
 
   const [body,setBody] = useState('');
-  const imdbId = movie.imdbId
-  const reviewIds = movie ? movie.reviewIds : [];
+  const imdbId = movie.imdbId ;
+  // const reviewIds = movie.reviewIds;
 
-  console.log(movie.reviewIds)
-  console.log("new game")
+  const reviewIds = movie ? (movie.reviewIds || []) : [];
 
 const addReview = async ()=>{
   try{
@@ -20,15 +19,14 @@ const addReview = async ()=>{
       imdbId:imdbId, 
      };
 
-     console.log(imdbId)
-     console.log(body)
-     const response = await MovieService.addReview(reviewData);
+     if(body!=""){
+      const response = await MovieService.addReview(reviewData);
      console.log(response);
      if (response.status === 201) {
       alert('added successfully')
-      const newReview = response.data;
-      // onReviewSubmitted(newReview);
-      setBody('');  
+      setBody(''); 
+     }
+      
   }
   }catch(err){
     console.error(err);
@@ -40,17 +38,10 @@ const addReview = async ()=>{
   };
 
   return (
-        // <Form>
-        //     <Form.Group>
-        //         <Form.Label>{labelText}</Form.Label>
-        //         <Form.Control ref={revText} as='textarea' rows={3} defaultValue={defaultValue}/>
-        //     </Form.Group>
-        //     <Button variant='outline-info' onClick={handleSubmit}>Submit</Button>
-        // </Form>
 
     <div className="review-container container-fluid">
-  <label for="exampleFormControlInput1" className="form-label">
-    {reviewIds ? `${reviewIds.length > 0} Reviews` : 'No Reviews'}</label>
+  <label  className="form-label">
+    {reviewIds !== null ? `${reviewIds.length} Reviews` : 'No Reviews'}</label>
   <textarea value={body} onChange={handleChange} className='text-box' placeholder='Add a review'></textarea>
   <Button variant='outline-info' onClick={addReview} className='submit-btn'>Submit</Button>
 </div>

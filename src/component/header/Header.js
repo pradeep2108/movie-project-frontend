@@ -4,10 +4,14 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import {NavLink} from "react-router-dom";
+import {NavLink, Route, Routes} from "react-router-dom";
 import './Header.css'
+import LoginForm from "../loginform/LoginForm";
 
 const Header = () => {
+
+
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg"  className="navbar-main navbar-fixed">
         <Container fluid>
@@ -25,7 +29,7 @@ const Header = () => {
                     <NavLink className ="nav-link" to="/">Home</NavLink>
                     <NavLink className ="nav-link" to="/watchList">Watch List</NavLink>      
                 </Nav>
-                <Button variant="outline-info" className="me-2">Login</Button>
+                <Button variant="outline-info" className="me-2" as={NavLink} to="/login">Login</Button>
                 <Button variant="outline-info">Register</Button>
             </Navbar.Collapse>
         </Container>

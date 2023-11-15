@@ -4,8 +4,11 @@
     import MovieService from '../../api/movieService';
     import Card from '../card/Card';
 import Genres from '../genres/Genres';
+import Input from '../input/Input';
+import LoginForm from '../loginform/LoginForm';
 import Credit from '../moviecredit/Credit';
     import Player from '../player/Player';
+import Review from '../review/Review';
 import ReviewForm from '../reviewform/ReviewForm';
     import Trailer from '../trailer/Trailer';
     import './ReviewPage.css'
@@ -53,9 +56,11 @@ import ReviewForm from '../reviewform/ReviewForm';
             <p className='description'>{movie.description}</p>
             <Credit movie={movie}/>
         </span>
-        </div>     
+        </div>    
         <ReviewForm onReviewSubmitted={movie} movie={movie}/>
+        <Review movie={movie}/>
         <div className='user-reviews'>    
+        
         </div>
         </div>
 

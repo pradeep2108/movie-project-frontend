@@ -11,13 +11,20 @@ import { Navbar } from 'react-bootstrap';
 import Header from './component/header/Header';
 import Trailer from './component/trailer/Trailer';
 import ReviewPage from './component/reviewpage/ReviewPage';
+import LoginForm from './component/loginform/LoginForm';
 
 
 
 
 
 function App() {
+  const[userName, setUserName] = useState('');
+  const[authorities,setAuthorities]=useState('');
   const [movies,setMovie] = useState([]);
+ useEffect(()=>{
+  setUserName(localStorage.getItem("username"))
+  setAuthorities(localStorage.getItem("authorities"))
+ },[])
 
   const getMovies = async ()=>{
     try{
@@ -29,13 +36,9 @@ function App() {
     }
   }
 
-
-
   useEffect(()=>{
     getMovies();
   },[])
-
-  
 
   // const router = createBrowserRouter([
   //   {path:'/', element:<RootLayout/>},
@@ -50,9 +53,8 @@ function App() {
         <Route path='/' element={<Home movies= {movies}/>}/>
         <Route path='/Trailer/:ytTailerId' element={<Trailer/>}></Route>
         <Route path='/reviewpage/:title' element={<ReviewPage/>}></Route>
+        <Route path='/login' element={<LoginForm setUserName={userName} setAuthorities={authorities}/>}></Route>
       </Routes>
-
-      
       {/* <RouterProvider router={router}/> */}
       
       </div>

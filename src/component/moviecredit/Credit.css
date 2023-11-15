@@ -6,3 +6,9 @@ hr{
     color: #6CA0DC;  
     padding-left: 2%;
 }
+
+@media screen and (max-width: 768px) {
+  .name{
+    font-size: 11px;
+  }
+}

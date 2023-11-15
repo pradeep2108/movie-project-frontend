@@ -1,0 +1,14 @@
+.review{
+  width: 50%;
+}
+
+.custom-hr {
+width: 820px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .custom-hr {
+        width: 400px;
+        }
+}

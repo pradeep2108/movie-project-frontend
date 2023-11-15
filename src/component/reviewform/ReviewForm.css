@@ -28,3 +28,22 @@
     margin-top: 2%;
     width: 10%;
 }
+
+@media screen and (max-width: 768px) {
+    .text-box{
+        margin-top: 1%;
+        width: 92%;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 10%;
+        background-color: transparent;
+        color: white;
+        line-height: 0.5;
+        outline: none;
+    }
+    .submit-btn{
+        margin-top: 2%;
+        width: 20%;
+    }
+}
