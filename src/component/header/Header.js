@@ -7,13 +7,29 @@ import Navbar from "react-bootstrap/Navbar";
 import {NavLink, Route, Routes} from "react-router-dom";
 import './Header.css'
 import LoginForm from "../loginform/LoginForm";
+import { useEffect, useState } from "react";
+import Search from "../searchbar/Search";
 
-const Header = () => {
+const Header = ({movies}) => {
 
+
+  const username = localStorage.getItem("userName");
+//   const[username, setUserName] = useState('');
+
+//  useEffect(()=>{
+//   setUserName(localStorage.getItem("username"))
+//  },[])
+
+
+ 
+//     const handleLogout=(e)=>{
+//       e.preventDefault();
+//       setUserName('');
+//     }
 
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg"  className="navbar-main navbar-fixed">
+    <Navbar bg="black" variant="dark" expand="lg"  className="navbar-main navbar-fixed">
         <Container fluid>
             <Navbar.Brand href="/" style={{"color":'gold'}}>
             {/* <FontAwesomeIcon icon ={faVideoSlash}/>Gold */}
@@ -26,15 +42,25 @@ const Header = () => {
                         style={{maxHeight: '100px'}}
                         navbarScroll
                     >
+                    
                     <NavLink className ="nav-link" to="/">Home</NavLink>
                     <NavLink className ="nav-link" to="/watchList">Watch List</NavLink>      
                 </Nav>
-                <Button variant="outline-info" className="me-2" as={NavLink} to="/login">Login</Button>
-                <Button variant="outline-info">Register</Button>
+                {!username?(<>
+                {/* <Button variant="outline-info" className="me-2" as={NavLink} to="/login">Login</Button> */}
+                <Button variant="outline-info" as={NavLink} to="/signup" >Sign Up</Button></>):(
+                  <Button variant="outline-info" className="me-2" as={NavLink} to="/logoutuser" >Logout</Button>
+                  
+                )}
+                 <div className="search-input-wrapper">
+                  <Search movies={movies}/>
+                </div>
+                
             </Navbar.Collapse>
         </Container>
     </Navbar>
   )
 }
+
 
 export default Header;

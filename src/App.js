@@ -12,17 +12,22 @@ import Header from './component/header/Header';
 import Trailer from './component/trailer/Trailer';
 import ReviewPage from './component/reviewpage/ReviewPage';
 import LoginForm from './component/loginform/LoginForm';
+import LogoutForm from './component/logout/LogoutForm';
+import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import LoginSignup from './component/LoginSignup/LoginSignup';
+
 
 
 
 
 
 function App() {
-  const[userName, setUserName] = useState('');
+  const[username, setUserName] = useState('');
   const[authorities,setAuthorities]=useState('');
   const [movies,setMovie] = useState([]);
  useEffect(()=>{
-  setUserName(localStorage.getItem("username"))
+  setUserName(localStorage.getItem("userName"))
   setAuthorities(localStorage.getItem("authorities"))
  },[])
 
@@ -47,13 +52,15 @@ function App() {
 
   return (
     <div className="App">
-      <Header className='header'/>
+      <Header className='header' movies={movies}/>
       <Routes>
-        <Route path='/' element={<RootLayout movies= {movies}/>}/>
+        <Route path='/' element={<RootLayout movies= {movies} setUsername={setUserName}/>}/>
         <Route path='/' element={<Home movies= {movies}/>}/>
         <Route path='/Trailer/:ytTailerId' element={<Trailer/>}></Route>
         <Route path='/reviewpage/:title' element={<ReviewPage/>}></Route>
-        <Route path='/login' element={<LoginForm setUserName={userName} setAuthorities={authorities}/>}></Route>
+        {/* <Route path='/login' element={<LoginForm setUsername={setUserName} setAuthorities={setAuthorities}/>}></Route> */}
+        <Route path='/logoutuser' element={<LogoutForm setUsername={setUserName} setAuthorities={setAuthorities}/>}></Route>
+        <Route path='/signup' element={<LoginSignup setUsername={setUserName} setAuthorities={setAuthorities}/>}></Route>
       </Routes>
       {/* <RouterProvider router={router}/> */}
       

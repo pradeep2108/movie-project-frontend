@@ -1,14 +1,14 @@
 /* LoginForm.css */
 
 .login-baselayer {
-    background-color: #F9F6EE;
-    width: 100vw; /* 100% of the viewport width */
-    height: 100vh; /* 100% of the viewport height */
+    /* background-color: #F9F6EE; */
+    /* width: 100vw;
+    height: 100vh;  */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to right, gold 50%, #F9F6EE 50%);
+    /* background: linear-gradient(to right, gold 50%, #F9F6EE 50%); */
 }
 .login-baselayer h1{
     position: absolute;

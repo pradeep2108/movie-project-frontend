@@ -1,34 +1,41 @@
 .input-wrapper {
-  width: 300px;
-  height: 50px;
+  width: 320px;
+  height: 45px;
   flex-shrink: 0;
+  background: transparent;
+  outline: none;
   border-radius: 10px;
-  position: relative; /* Added for proper stacking */
+  position: relative; 
+  border: none;
+  color: black
 }
 
 .input-wrapper::placeholder {
-  color: #F0E68C;
+  color: #797979;
 }
 
-input[type="text"],
+
+/* input[type="text"],
 .input-wrapper {
   transition: all 0.30s ease-in-out;
   outline: none;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
   border: 1px solid #DDDDDD;
-}
+} */
 
-input[type="text"]:focus,
+/* Added border style for focus state */
+/* input[type="text"]:focus,
 .input-wrapper:focus {
   box-shadow: 0 0 10px rgba(255, 234, 0);
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
-  border: 1px solid #DDDDDD; /* Added border style for focus state */
-}
+  border: 1px solid #DDDDDD; 
+} */
 
-.input-wrapper:focus-within::after {
-  content: ""; /* Added for the focus border effect */
+/* Added for the focus border effect */
+/* .input-wrapper:focus-within::after {
+  content: ""; 
   position: absolute;
   border: 5px solid rgba(255, 234, 0);
   top: -7px;
@@ -36,4 +43,5 @@ input[type="text"]:focus,
   bottom: -7px;
   left: -7px;
   pointer-events: none;
-}
+} */
+

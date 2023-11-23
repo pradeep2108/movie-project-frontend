@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import CustomerService from '../../api/customerService'
 import Input from '../input/Input'
 import './LoginForm.css'
+import Swal from 'sweetalert2'
 
 const LoginForm = ({setUsername, setAuthorities}) => {
   let navigate = useNavigate();
@@ -26,25 +27,26 @@ function parseJwt(token){
   return JSON.parse(window.atob(base64))
 }
 
-const checkUser = (data)=>{
+const checkUser = (data) => {
   localStorage.setItem("email", data.email);
   CustomerService.login(data)
-  .then((response)=>{
-    let token = response.data;
-    let userData = parseJwt(token)
-    console.log( "this is a token " + userData)
-    localStorage.setItem("token",JSON.stringify(token));
-    localStorage.setItem("username",userData.sub);
-    localStorage.setItem("authorities",userData.role[0].authority)
-    alert("entered here")
-    setUsername(userData.sub);
-    setAuthorities(userData.role[0].authority)
-    navigate('/')
-  }).catch((e)=>{
-    console.log(e);
-  })
-
-}
+    .then((response) => {
+      let token = response.data;
+      let userData = parseJwt(token);
+      console.log("this is a token " + userData);
+      localStorage.setItem("token", JSON.stringify(token));
+      localStorage.setItem("username", userData.sub);
+      localStorage.setItem("authorities", userData.role[0].authority);
+      ;
+      Swal.fire("SweetAlert2 is working!")
+      setUsername(userData.sub);
+      setAuthorities(userData.role[0].authority)
+      navigate('/')
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};
 
 const handleSubmit = (e)=>{
   e.preventDefault();
@@ -65,7 +67,7 @@ const validateForm = (formValues)=>{
 
   return (
     <div className='login-baselayer'>
-         <h1>Your Gateway to Cinematic<span class="cinematic-word">Insight</span></h1>
+         {/* <h1>Your Gateway to Cinematic<span class="cinematic-word">Insight</span></h1> */}
         <div className='login-background'>
           <div className='login-detail'>
             <div className='movie-posters-container'>
@@ -75,6 +77,7 @@ const validateForm = (formValues)=>{
             
             <div className='input-container'>
             <h2>Good to see you again 😉</h2>
+          
             <Input 
             name="email"
             value={formValues.email} 
