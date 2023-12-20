@@ -3,10 +3,10 @@
         background: linear-gradient( black 85%, gold 100%);
 } 
 
-.search-input-wrapper{
+.search-input-header{
    
         position: absolute;
         top: 9px;
-        right: 170px;
+        right: 210px;
         z-index: 3;
 }
